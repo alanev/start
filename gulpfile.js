@@ -50,7 +50,17 @@ var gulp = require('gulp'),
 	minifyoptions = {
 		advanced: false
 	},
-	
+
+	// html
+	postxml = require('gulp-postxml'),
+	postxmlplugins = [
+		require('postxml-import'),
+		require('postxml-custom-tags'),
+		require('postxml-placeholder'),
+		require('postxml-beml'),
+		require('postxml-imgalt')
+	],
+
 	// js
 	uglify = require('gulp-uglify'),
 
@@ -94,7 +104,7 @@ var src = 'blocks/',
 		],
 		name: pkg.name + '.js'
 	},
-	
+
 	sprite = {
 		block: 'i-icons',
 		src: src + '**/i-*.png',
@@ -152,6 +162,7 @@ gulp.task('zip',function () {
 gulp.task('html', function () {
 	gulp.src(html.src)
 		.pipe(flatten())
+		.pipe(postxml(postxmlplugins))
 		.pipe(gulp.dest(html.dest))
 		;
 	gulp.src(dest + 'index.htm')
@@ -253,7 +264,7 @@ gulp.task('watch', ['html','css:dev','js:dev'], function () {
 	connect.server(server);
 	gulp.watch(dest + '*.htm', ['html']);
 	gulp.watch(src + '**/*.htm', ['html']);
-	
+
 	gulp.watch(src + '**/*.css', ['css:dev']);
 	gulp.watch(src + '**/*.js', ['js:dev']);
 });
