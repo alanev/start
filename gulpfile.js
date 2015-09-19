@@ -14,38 +14,21 @@ var gulp = require('gulp'),
 
 	// css
 	postcss = require('gulp-postcss'),
-	//autorprefixer
-	cssautoprefixer = require('autoprefixer-core'),
-	//css4
-	csscolor = require('postcss-color-function'),
-	cssvariables = require('postcss-css-variables'),
-	cssmedia = require('postcss-custom-media'),
-	cssnot= require('postcss-selector-not'),
-	// extensions
-	cssmixins = require('postcss-mixins'),
-	cssnested = require('postcss-nested'),
-	cssnestedprops = require('postcss-nested-props'),
-	cssvars = require('postcss-simple-vars'),
-	//shortcuts
-	cssshort = require('postcss-short'),
-	cssfocus = require('postcss-focus'),
-	cssfontresponsive = require('postcss-responsive-type'),
-	//processors
-	processors = [
-		cssmixins(),
-		cssnestedprops(),
-		cssnested(),
-		cssmedia(),
-		cssvariables(),
-		cssvars(),
-		cssshort({
+	cssprocessors = [
+		require('postcss-mixins'),
+		require('postcss-nested-props'),
+		require('postcss-nested'),
+		require('postcss-custom-media'),
+		require('postcss-css-variables'),
+		require('postcss-simple-vars'),
+		require('postcss-short')({
 			deny: ['padding','margin','text','min-size','max-size']
 		}),
-		cssnot(),
-		cssfocus(),
-		csscolor(),
-		cssfontresponsive(),
-		cssautoprefixer()
+		require('postcss-selector-not'),
+		require('postcss-focus'),
+		require('postcss-color-function'),
+		require('postcss-responsive-type'),
+		require('autoprefixer-core')
 	],
 	//minify
 	minify = require('gulp-minify-css'),
@@ -175,7 +158,7 @@ gulp.task('html', function () {
 gulp.task('css:dev', function () {
 	gulp.src(css.src)
 		.pipe(concat(css.name))
-		.pipe(postcss(processors))
+		.pipe(postcss(cssprocessors))
 		.pipe(gulp.dest(dest))
 		.pipe(browserSync.reload({
 			stream: true
@@ -185,7 +168,7 @@ gulp.task('css:dev', function () {
 gulp.task('css:build', function () {
 	gulp.src(css.src)
 		.pipe(concat(css.name))
-		.pipe(postcss(processors))
+		.pipe(postcss(cssprocessors))
 		.pipe(minify(minifyoptions))
 		.pipe(gulp.dest(dest));
 });
