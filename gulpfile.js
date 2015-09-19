@@ -8,7 +8,9 @@ var gulp = require('gulp'),
 	zip = require('gulp-zip'),
 	clean = require('gulp-clean'),
 	flatten = require('gulp-flatten'),
-	connect = require('gulp-connect'),
+	
+	// server
+	browserSync = require('browser-sync'),
 
 	// css
 	postcss = require('gulp-postcss'),
@@ -166,7 +168,9 @@ gulp.task('html', function () {
 		.pipe(gulp.dest(html.dest))
 		;
 	gulp.src(dest + 'index.htm')
-		.pipe(connect.reload())
+		.pipe(browserSync.reload({
+			stream: true
+		}))
 		;
 });
 
@@ -176,7 +180,9 @@ gulp.task('css:dev', function () {
 		.pipe(concat(css.name))
 		.pipe(postcss(processors))
 		.pipe(gulp.dest(dest))
-		.pipe(connect.reload())
+		.pipe(browserSync.reload({
+			stream: true
+		}))
 		;
 });
 gulp.task('css:build', function () {
@@ -192,7 +198,9 @@ gulp.task('js:dev', function () {
 	gulp.src(js.src)
 		.pipe(concat(js.name))
 		.pipe(gulp.dest(dest))
-		.pipe(connect.reload())
+		.pipe(browserSync.reload({
+			stream: true
+		}))
 		;
 });
 gulp.task('js:build', function () {
@@ -253,15 +261,21 @@ var server = {
 	port: 8001,
 	livereload: true
 };
+gulp.task('browserSync', function () {
+	browserSync({
+		server: {
+			baseDir: 'cwd'
+		}
+	});
+});
 gulp.task('open',function () {
 	gulp.src(dest + 'index.htm')
-		.pipe(open({ uri: 'http://localhost:' + server.port + '/index.htm' }))
-		.pipe(open('<%= file.cwd %>', { app: 'explorer' }))
+		.pipe(open({ uri: 'http://localhost:3000/index.htm' }))
+		// .pipe(open('<%= file.cwd %>', { app: 'explorer' }))
 		;
 });
-gulp.task('watch', ['html','css:dev','js:dev'], function () {
-
-	connect.server(server);
+gulp.task('watch', ['html','css:dev','js:dev', 'browserSync'], function () {
+	
 	gulp.watch(dest + '*.htm', ['html']);
 	gulp.watch(src + '**/*.htm', ['html']);
 
