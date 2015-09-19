@@ -1,10 +1,7 @@
 
 *.zip
 ftp.json
-cwd/img
-cwd/*.css
-cwd/*.js
-cwd/views
+cwd
 src/blocks
 src/img
 src/psd

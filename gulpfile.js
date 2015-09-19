@@ -83,10 +83,8 @@ ftppass.remotePath = "/" + pkg.name;
 var src = 'blocks/',
 	dest = 'cwd/',
 	html = {
-		src: [
-			src + '**/*.htm'
-		],
-		dest: dest + 'views/'
+		src: 'pages/*.+(htm|html)',
+		dest: dest
 	},
 	css = {
 		src: [
@@ -163,7 +161,6 @@ gulp.task('zip',function () {
 /*-- Html Tasks --*/
 gulp.task('html', function () {
 	gulp.src(html.src)
-		.pipe(flatten())
 		.pipe(postxml(postxmlplugins))
 		.pipe(gulp.dest(html.dest))
 		;
@@ -264,25 +261,24 @@ var server = {
 gulp.task('browserSync', function () {
 	browserSync({
 		server: {
-			baseDir: 'cwd'
+			baseDir: 'cwd',
+			index: 'index.htm'
 		}
 	});
 });
 gulp.task('open',function () {
 	gulp.src(dest + 'index.htm')
-		.pipe(open({ uri: 'http://localhost:3000/index.htm' }))
+		// .pipe(open({ uri: 'http://localhost:3000/index.htm' }))
 		// .pipe(open('<%= file.cwd %>', { app: 'explorer' }))
 		;
 });
 gulp.task('watch', ['html','css:dev','js:dev', 'browserSync'], function () {
 	
-	gulp.watch(dest + '*.htm', ['html']);
-	gulp.watch(src + '**/*.htm', ['html']);
+	gulp.watch([html.src, src + '**/*.htm'], ['html']);
 
 	gulp.watch(src + '**/*.css', ['css:dev']);
 	gulp.watch(src + '**/*.js', ['js:dev']);
 });
-gulp.task('dev', ['watch','open']);
 
 /*-- Dev Build --*/
 gulp.task('build', ['img:build','css:build','js:build']);
