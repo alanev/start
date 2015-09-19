@@ -6,7 +6,7 @@ var gulp = require('gulp'),
 	open = require('gulp-open'),
 	ftp = require('gulp-ftp'),
 	zip = require('gulp-zip'),
-	clean = require('gulp-clean'),
+	clean = require('gulp-rimraf'),
 	flatten = require('gulp-flatten'),
 	
 	// server
