@@ -8,6 +8,9 @@ var gulp = require('gulp'),
 	zip = require('gulp-zip'),
 	clean = require('gulp-rimraf'),
 	flatten = require('gulp-flatten'),
+	runSequence = require('run-sequence'),
+	merge = require('merge-stream'),
+	cache = require('gulp-cache'),
 	
 	// server
 	browserSync = require('browser-sync'),
@@ -191,15 +194,18 @@ gulp.task('js:build', function () {
 });
 
 /*-- Images Tasks --*/
+gulp.task('img', function () {
+	runSequence('sprite:make', 'css:dev', 'img:clean', 'img:min');
+});
 gulp.task('img:dev',['img:clean','img:copy']);
 gulp.task('img:build',['img:clean','img:min']);
 gulp.task('img:min',function () {
 	gulp.src(img.src)
 		.pipe(flatten())
-		.pipe(imagemin({
+		.pipe(cache(imagemin({
 			optimizationLevel: 5,
 			progressive: true
-		}))
+		})))
 		.pipe(gulp.dest(img.dest))
 		;
 });
@@ -214,8 +220,6 @@ gulp.task('img:clean',function () {
 		.pipe(clean())
 		;
 });
-
-/*-- Sprite Tasks --*/
 gulp.task('sprite:make', function () {
 	var spriteData = gulp.src(sprite.src)
 		.pipe(spritesmith({
@@ -224,10 +228,12 @@ gulp.task('sprite:make', function () {
 			cssTemplate: sprite.tmpl,
 			padding: 5
 		}));
-	spriteData.img
+	var spriteImg = spriteData.img
 		.pipe(gulp.dest(sprite.img.dest));
-	spriteData.css
+	var spriteCss = spriteData.css
 		.pipe(gulp.dest(sprite.css.dest));
+	
+	return merge(spriteImg, spriteCss);
 });
 
 gulp.task('done',function () {
@@ -254,13 +260,17 @@ gulp.task('open',function () {
 		// .pipe(open('<%= file.cwd %>', { app: 'explorer' }))
 		;
 });
-gulp.task('watch', ['html','css:dev','js:dev', 'browserSync'], function () {
+gulp.task('watch', ['img','html','css:dev','js:dev', 'browserSync'], function () {
 	
 	gulp.watch([html.src, src + '**/*.htm'], ['html']);
 
 	gulp.watch(src + '**/*.css', ['css:dev']);
 	gulp.watch(src + '**/*.js', ['js:dev']);
+	
+	gulp.watch(src + img.name, ['img']);
 });
 
 /*-- Dev Build --*/
-gulp.task('build', ['img:build','css:build','js:build']);
+gulp.task('build', function () {
+	runSequence('img', ['css:build','js:build'], ['ftp', 'zip']);
+});
