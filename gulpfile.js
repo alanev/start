@@ -15,20 +15,20 @@ var gulp = require('gulp'),
 	// css
 	postcss = require('gulp-postcss'),
 	cssprocessors = [
-		require('postcss-mixins'),
-		require('postcss-nested-props'),
-		require('postcss-nested'),
-		require('postcss-custom-media'),
-		require('postcss-css-variables'),
-		require('postcss-simple-vars'),
+		require('postcss-mixins')(),
+		require('postcss-nested-props')(),
+		require('postcss-nested')(),
+		require('postcss-custom-media')(),
+		require('postcss-css-variables')(),
+		require('postcss-simple-vars')(),
 		require('postcss-short')({
 			deny: ['padding','margin','text','min-size','max-size']
 		}),
-		require('postcss-selector-not'),
-		require('postcss-focus'),
-		require('postcss-color-function'),
-		require('postcss-responsive-type'),
-		require('autoprefixer-core')
+		require('postcss-selector-not')(),
+		require('postcss-focus')(),
+		require('postcss-color-function')(),
+		require('postcss-responsive-type')(),
+		require('autoprefixer-core')()
 	],
 	//minify
 	minify = require('gulp-minify-css'),
@@ -39,11 +39,10 @@ var gulp = require('gulp'),
 	// html
 	postxml = require('gulp-postxml'),
 	postxmlplugins = [
-		require('postxml-import'),
-		require('postxml-custom-tags'),
-		require('postxml-placeholder'),
-		require('postxml-beml'),
-		require('postxml-imgalt')
+		require('postxml-import')(),
+		require('postxml-custom-tags')(),
+		require('postxml-beml')(),
+		require('postxml-imgalt')()
 	],
 
 	// js
