@@ -24,9 +24,8 @@ var gulp = require('gulp'),
 		require('postcss-custom-media')(),
 		require('postcss-css-variables')(),
 		require('postcss-simple-vars')(),
-		require('postcss-short')({
-			deny: ['padding','margin','text','min-size','max-size']
-		}),
+		require('postcss-short-size'),
+		require('postcss-short-position'),
 		require('postcss-selector-not')(),
 		require('postcss-focus')(),
 		require('postcss-color-function')(),
