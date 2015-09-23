@@ -29,7 +29,7 @@
     "postcss-mixins": "^0.4.0",
     "postcss-nested": "^0.3.2",
     "postcss-nested-props": "^0.0.4",
-    "postcss-responsive-type": "^0.1.1",
+    "postcss-pseudo-content-insert": "^0.2.1",
     "postcss-selector-not": "^1.2.1",
     "postcss-short-position": "^1.0.0",
     "postcss-short-size": "^1.0.0",

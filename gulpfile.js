@@ -28,9 +28,10 @@ var gulp = require('gulp'),
 		require('postcss-short-position'),
 		require('postcss-selector-not')(),
 		require('postcss-focus')(),
+		require('postcss-pseudo-content-insert')(),
 		require('postcss-color-function')(),
-		require('postcss-responsive-type')(),
 		require('autoprefixer')()
+		
 	],
 	//minify
 	minify = require('gulp-minify-css'),
