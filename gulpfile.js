@@ -28,10 +28,26 @@ var gulp = require('gulp'),
 		require('postcss-short-position'),
 		require('postcss-selector-not')(),
 		require('postcss-focus')(),
-		require('postcss-pseudo-content-insert')(),
 		require('postcss-color-function')(),
-		require('autoprefixer')()
-		
+		require('autoprefixer')(),
+		// optimisations
+		require('postcss-discard-comments')(),
+		require('postcss-discard-empty')(),
+		require('postcss-calc')(),
+		require('postcss-normalize-url')(),
+		require('postcss-minify-selectors')(),
+		require('postcss-merge-longhand')(),
+		require('postcss-font-family')(),
+		require('postcss-convert-values')({
+			length: false,
+			angle: false
+		}),
+		require('postcss-colormin')(),
+		require('postcss-merge-rules')(),
+		require('postcss-discard-unused')(),
+		require('postcss-zindex')(),
+		require('postcss-reduce-idents')(),
+		require('css-mqpacker')()
 	],
 	//minify
 	minify = require('gulp-minify-css'),
