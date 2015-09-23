@@ -4,7 +4,7 @@
   "description": "Start for front-end.",
   "author": "alanev <e@alanev.ru>",
   "devDependencies": {
-    "autoprefixer-core": "^5.2.1",
+    "autoprefixer": "^6.0.3",
     "browser-sync": "^2.9.3",
     "gulp": "^3.9.0",
     "gulp-cache": "^0.3.0",

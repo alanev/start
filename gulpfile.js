@@ -30,7 +30,7 @@ var gulp = require('gulp'),
 		require('postcss-focus')(),
 		require('postcss-color-function')(),
 		require('postcss-responsive-type')(),
-		require('autoprefixer-core')()
+		require('autoprefixer')()
 	],
 	//minify
 	minify = require('gulp-minify-css'),
