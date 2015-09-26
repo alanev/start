@@ -50,7 +50,7 @@
     "postxml-beml": "^0.1.0",
     "postxml-custom-tags": "^0.1.1",
     "postxml-imgalt": "^0.1.1",
-    "postxml-import": "^0.2.0",
+    "postxml-import": "^0.3.0",
     "postxml-placeholder": "^0.1.0",
     "postxml-wrap": "^0.1.1",
     "run-sequence": "^1.1.3"
