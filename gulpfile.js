@@ -14,6 +14,7 @@ var gulp = require('gulp'),
 	
 	// server
 	browserSync = require('browser-sync'),
+	watch = require('gulp-watch'),
 
 	// css
 	postcss = require('gulp-postcss'),
@@ -211,7 +212,7 @@ gulp.task('js:build', function () {
 
 /*-- Images Tasks --*/
 gulp.task('img', function () {
-	runSequence('sprite:make', 'css:dev', 'img:clean', 'img:min');
+	runSequence('sprite:make', 'img:clean', 'img:min');
 });
 gulp.task('img:dev',['img:clean','img:copy']);
 gulp.task('img:build',['img:clean','img:min']);
@@ -278,12 +279,20 @@ gulp.task('open',function () {
 });
 gulp.task('watch', ['img','html','css:dev','js:dev', 'browserSync'], function () {
 	
-	gulp.watch([html.src, src + '**/*.htm'], ['html']);
+	watch([html.src, src + '**/*.htm'], function () {
+		gulp.start('html');
+	});
 
-	gulp.watch(src + '**/*.css', ['css:dev']);
-	gulp.watch(src + '**/*.js', ['js:dev']);
+	gulp.watch(src + '**/*.css', function () {
+		gulp.start('css:dev');
+	});
+	gulp.watch(src + '**/*.js', function () {
+		gulp.start('js:dev');
+	});
 	
-	gulp.watch(src + img.name, ['img']);
+	gulp.watch(src + img.name, function () {
+		gulp.start('img');
+	});
 });
 
 /*-- Dev Build --*/
