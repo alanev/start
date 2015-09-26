@@ -3,7 +3,7 @@ var gulp = require('gulp'),
 
 	// file
 	concat = require('gulp-concat'),
-	open = require('gulp-open'),
+	open = require('open'),
 	ftp = require('gulp-ftp'),
 	zip = require('gulp-zip'),
 	clean = require('gulp-rimraf'),
@@ -275,14 +275,12 @@ gulp.task('browserSync', function () {
 		}
 	});
 });
+
 gulp.task('open',function () {
-	gulp.src(dest + 'index.htm')
-		// .pipe(open({ uri: 'http://localhost:3000/index.htm' }))
-		// .pipe(open('<%= file.cwd %>', { app: 'explorer' }))
-		;
+	open(process.cwd());
 });
 
-gulp.task('dev', ['img', 'html', 'css:dev', 'js:dev', 'watch']);
+gulp.task('dev', ['img', 'html', 'css:dev', 'js:dev', 'watch', 'open']);
 gulp.task('watch', ['browserSync'], function () {
 	
 	watch([html.src, src + '**/*.htm'], function () {
