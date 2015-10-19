@@ -220,10 +220,10 @@ gulp.task('img:build', ['img:clean', 'img:min']);
 gulp.task('img:min',function () {
 	gulp.src(img.src)
 		.pipe(flatten())
-		.pipe(cache(imagemin({
+		.pipe(imagemin({
 			optimizationLevel: 5,
 			progressive: true
-		})))
+		}))
 		.pipe(gulp.dest(img.dest))
 		;
 });
