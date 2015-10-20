@@ -10,6 +10,7 @@ var gulp = require('gulp'),
 	flatten = require('gulp-flatten'),
 	runSequence = require('run-sequence'),
 	merge = require('merge-stream'),
+	sourcemaps = require('gulp-sourcemaps'),
 	
 	// server
 	browserSync = require('browser-sync'),
@@ -169,7 +170,9 @@ gulp.task('zip',function () {
 /*-- Html Tasks --*/
 gulp.task('html', function () {
 	gulp.src(html.src)
+		.pipe(sourcemaps.init())
 		.pipe(postxml(postxmlplugins))
+		.pipe(sourcemaps.write(process.cwd() + '/maps'))
 		.pipe(gulp.dest(html.dest))
 		;
 	gulp.src(dest + 'index.htm')
@@ -182,8 +185,10 @@ gulp.task('html', function () {
 /*-- Css Tasks --*/
 gulp.task('css:dev', function () {
 	gulp.src(css.src)
+		.pipe(sourcemaps.init())
 		.pipe(concat(css.name))
 		.pipe(postcss(cssprocessors))
+		.pipe(sourcemaps.write(process.cwd() + '/maps'))
 		.pipe(gulp.dest(dest))
 		.pipe(browserSync.reload({
 			stream: true
@@ -192,9 +197,11 @@ gulp.task('css:dev', function () {
 });
 gulp.task('css:build', function () {
 	gulp.src(css.src)
+		.pipe(sourcemaps.init())
 		.pipe(concat(css.name))
 		.pipe(postcss(cssprocessors))
 		.pipe(minify(minifyoptions))
+		.pipe(sourcemaps.write(process.cwd() + '/maps'))
 		.pipe(gulp.dest(dest))
 		;
 });
@@ -202,7 +209,9 @@ gulp.task('css:build', function () {
 /*-- Js Tasks --*/
 gulp.task('js:dev', function () {
 	gulp.src(js.src)
+		.pipe(sourcemaps.init())
 		.pipe(concat(js.name))
+		.pipe(sourcemaps.write(process.cwd() + '/maps'))
 		.pipe(gulp.dest(dest))
 		.pipe(browserSync.reload({
 			stream: true
@@ -211,7 +220,9 @@ gulp.task('js:dev', function () {
 });
 gulp.task('js:build', function () {
 	gulp.src(js.src)
+		.pipe(sourcemaps.init())
 		.pipe(concat(js.name))
+		.pipe(sourcemaps.write(process.cwd() + '/maps'))
 		.pipe(uglify())
 		.pipe(gulp.dest(dest))
 		;
