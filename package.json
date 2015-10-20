@@ -8,7 +8,6 @@
     "browser-sync": "^2.9.6",
     "css-mqpacker": "^4.0.0",
     "gulp": "^3.9.0",
-    "gulp-cache": "^0.3.0",
     "gulp-concat": "^2.6.0",
     "gulp-flatten": "^0.2.0",
     "gulp-ftp": "^1.0.4",
