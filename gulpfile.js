@@ -97,10 +97,10 @@ var src = 'blocks/',
 	},
 	css = {
 		src: [
-			src + 'i-*/*.css',
-			src + 'g-*/*.css',
-			src + 'b-*/*.css',
-			src + '**/*.css'
+			src + 'i-*/*.{css,scss}',
+			src + 'g-*/*.{css,scss}',
+			src + 'b-*/*.{css,scss}',
+			src + '**/*.{css,scss}'
 		],
 		name:  pkg.name + '.css'
 	},
@@ -304,7 +304,7 @@ gulp.task('watch', ['browserSync'], function () {
 		gulp.start('html');
 	});
 
-	watch(src + '**/*.css', function () {
+	watch(src + '**/*.{css,scss}', function () {
 		gulp.start('css:dev');
 	});
 	watch(src + '**/*.js', function () {
