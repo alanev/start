@@ -10,7 +10,6 @@ var gulp = require('gulp'),
 	flatten = require('gulp-flatten'),
 	runSequence = require('run-sequence'),
 	merge = require('merge-stream'),
-	cache = require('gulp-cache'),
 	
 	// server
 	browserSync = require('browser-sync'),
@@ -59,10 +58,17 @@ var gulp = require('gulp'),
 	// html
 	postxml = require('gulp-postxml'),
 	postxmlplugins = [
-		require('postxml-import')(),
-		require('postxml-custom-tags')(),
+		require('postxml-import')({
+			selector: 'import[block]',
+			attr: 'block',
+			path: function (block) {
+				return 'blocks/' + block + '/' + block + '.htm';
+			}
+		}),
 		require('postxml-beml')(),
-		require('postxml-imgalt')()
+		require('postxml-imgalt')(),
+		require('postxml-placeholder')(),
+		require('postxml-repeat')()
 	],
 
 	// js
@@ -270,7 +276,7 @@ var server = {
 gulp.task('browserSync', function () {
 	browserSync({
 		server: {
-			baseDir: 'cwd',
+			directory: true,
 			index: 'index.htm'
 		}
 	});
