@@ -13,7 +13,7 @@ var gulp = require('gulp'),
 	sourcemaps = require('gulp-sourcemaps'),
 	
 	// server
-	browserSync = require('browser-sync'),
+	connect = require('gulp-connect'),
 	watch = require('gulp-watch'),
 
 	// css
@@ -176,9 +176,7 @@ gulp.task('html', function () {
 		.pipe(gulp.dest(html.dest))
 		;
 	gulp.src(dest + 'index.htm')
-		.pipe(browserSync.reload({
-			stream: true
-		}))
+		.pipe(connect.reload())
 		;
 });
 
@@ -280,17 +278,13 @@ var server = {
 	port: 8001,
 	livereload: true
 };
-gulp.task('browserSync', function () {
-	browserSync({
-		server: {
-			directory: true,
-			index: 'index.htm'
-		}
-	});
+gulp.task('connect', function () {
+	connect.server(server);
 });
 
 gulp.task('open',function () {
 	open(process.cwd());
+	open('http://localhost:8001/index.htm');
 });
 
 gulp.task('dev', ['img', 'html', 'css:dev', 'js:dev', 'watch', 'open']);
