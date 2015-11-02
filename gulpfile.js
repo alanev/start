@@ -6,7 +6,7 @@ var gulp = require('gulp'),
 	open = require('open'),
 	ftp = require('gulp-ftp'),
 	zip = require('gulp-zip'),
-	clean = require('gulp-rimraf'),
+	del = require('del'),
 	flatten = require('gulp-flatten'),
 	runSequence = require('run-sequence'),
 	merge = require('merge-stream'),
@@ -245,9 +245,10 @@ gulp.task('img:copy',function () {
 		;
 });
 gulp.task('img:clean',function () {
-	gulp.src(img.dest)
-		.pipe(clean())
-		;
+	del([
+		img.dest + '**',
+		img.dest
+	]);
 });
 gulp.task('sprite', function () {
 	runSequence('sprite:make', 'img:clean', 'img:min');
