@@ -1,0 +1,197 @@
+{
+	"kind": "pagespeedonline#result",
+	"id": "http://projects.alanev.ru/apc/",
+	"responseCode": 200,
+	"title": "APC",
+	"score": 99,
+	"pageStats": {
+		"numberResources": 26,
+		"numberHosts": 3,
+		"totalRequestBytes": "1318",
+		"numberStaticResources": 24,
+		"htmlResponseBytes": "84629",
+		"imageResponseBytes": "899499",
+		"javascriptResponseBytes": "132089",
+		"otherResponseBytes": "477",
+		"numberJsResources": 2
+	},
+	"formattedResults": {
+		"locale": "ru",
+		"ruleResults": {
+			"AvoidLandingPageRedirects": {
+				"localizedRuleName": "Не используйте переадресацию с целевой страницы",
+				"ruleImpact": 0,
+				"urlBlocks": [
+					{
+						"header": {
+							"format": "На вашей странице нет переадресаций. Подробнее о том, как избегать переадресаций на целевых страницах.",
+							"args": [
+								{
+									"type": "HYPERLINK",
+									"value": "https://developers.google.com/speed/docs/insights/AvoidRedirects"
+								}
+							]
+						}
+					}
+				]
+			},
+			"EnableGzipCompression": {
+				"localizedRuleName": "Включите сжатие",
+				"ruleImpact": 0,
+				"urlBlocks": [
+					{
+						"header": {
+							"format": "Сжатие включено. Подробнее о том, как включить сжатие.",
+							"args": [
+								{
+									"type": "HYPERLINK",
+									"value": "https://developers.google.com/speed/docs/insights/EnableCompression"
+								}
+							]
+						}
+					}
+				]
+			},
+			"LeverageBrowserCaching": {
+				"localizedRuleName": "Используйте кеш браузера",
+				"ruleImpact": 0,
+				"urlBlocks": [
+					{
+						"header": {
+							"format": "Кеширование в браузере включено. Подробнее о том, как использовать кеширование в браузере.",
+							"args": [
+								{
+									"type": "HYPERLINK",
+									"value": "https://developers.google.com/speed/docs/insights/LeverageBrowserCaching"
+								}
+							]
+						}
+					}
+				]
+			},
+			"MainResourceServerResponseTime": {
+				"localizedRuleName": "Сократите время ответа сервера",
+				"ruleImpact": 0,
+				"urlBlocks": [
+					{
+						"header": {
+							"format": "Ваш сервер ответил быстро. Подробнее о том, как сократить время ответа сервера.",
+							"args": [
+								{
+									"type": "HYPERLINK",
+									"value": "https://developers.google.com/speed/docs/insights/Server"
+								}
+							]
+						}
+					}
+				]
+			},
+			"MinifyCss": {
+				"localizedRuleName": "Сократите CSS",
+				"ruleImpact": 0,
+				"urlBlocks": [
+					{
+						"header": {
+							"format": "Код CSS сокращен. Подробнее о том, как сокращать код CSS.",
+							"args": [
+								{
+									"type": "HYPERLINK",
+									"value": "https://developers.google.com/speed/docs/insights/MinifyResources"
+								}
+							]
+						}
+					}
+				]
+			},
+			"MinifyHTML": {
+				"localizedRuleName": "Сократите HTML",
+				"ruleImpact": 0,
+				"urlBlocks": [
+					{
+						"header": {
+							"format": "HTML-код сокращен. Подробнее о том, как сокращать HTML-код.",
+							"args": [
+								{
+									"type": "HYPERLINK",
+									"value": "https://developers.google.com/speed/docs/insights/MinifyResources"
+								}
+							]
+						}
+					}
+				]
+			},
+			"MinifyJavaScript": {
+				"localizedRuleName": "Сократите JavaScript",
+				"ruleImpact": 0,
+				"urlBlocks": [
+					{
+						"header": {
+							"format": "Код JavaScript сокращен. Подробнее о том, как сокращать код JavaScript.",
+							"args": [
+								{
+									"type": "HYPERLINK",
+									"value": "https://developers.google.com/speed/docs/insights/MinifyResources"
+								}
+							]
+						}
+					}
+				]
+			},
+			"MinimizeRenderBlockingResources": {
+				"localizedRuleName": "Удалите из верхней части страницы код JavaScript и CSS, блокирующий отображение",
+				"ruleImpact": 0,
+				"urlBlocks": [
+					{
+						"header": {
+							"format": "На вашей странице нет ресурсов, блокирующих отображение. Подробнее об их удалении...",
+							"args": [
+								{
+									"type": "HYPERLINK",
+									"value": "https://developers.google.com/speed/docs/insights/BlockingJS"
+								}
+							]
+						}
+					}
+				]
+			},
+			"OptimizeImages": {
+				"localizedRuleName": "Оптимизируйте изображения",
+				"ruleImpact": 0,
+				"urlBlocks": [
+					{
+						"header": {
+							"format": "Изображения оптимизированы. Подробнее о том, как оптимизировать изображения.",
+							"args": [
+								{
+									"type": "HYPERLINK",
+									"value": "https://developers.google.com/speed/docs/insights/OptimizeImages"
+								}
+							]
+						}
+					}
+				]
+			},
+			"PrioritizeVisibleContent": {
+				"localizedRuleName": "Оптимизируйте видимое содержание",
+				"ruleImpact": 0,
+				"urlBlocks": [
+					{
+						"header": {
+							"format": "Содержание верхней части страницы оптимизировано для быстрого отображения. Подробнее о том, как обеспечить быстрое отображение видимой части страницы.",
+							"args": [
+								{
+									"type": "HYPERLINK",
+									"value": "https://developers.google.com/speed/docs/insights/PrioritizeVisibleContent"
+								}
+							]
+						}
+					}
+				]
+			}
+		}
+	},
+	"version": {
+		"major": 1,
+		"minor": 15
+	}
+}

@@ -1,0 +1,6 @@
+body{
+	display: flex;
+	background: blue;
+	color: white;
+	width: calc(30px * 4);
+}

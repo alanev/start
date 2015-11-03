@@ -1,0 +1,32 @@
+{
+	"port": 8001,
+	"docClass": ".g-doc_",
+	"ftp": {
+		"host": "hostname",
+		"user": "username",
+		"pass": "password"
+	},
+	"modules": {
+		"block": {},
+		"b-block": {},
+		"i-test": {}
+	},
+	"modernizr": {
+		"minify": true,
+		"classPrefix": "g-doc_",
+		"options": [
+			"setClasses"
+		],
+		"feature-detects": [
+			"css/calc",
+			"css/columns",
+			"css/flexbox",
+			"css/flexboxlegacy",
+			"css/flexboxtweener",
+			"css/flexwrap",
+			"css/transforms",
+			"img/webp",
+			"svg/inline"
+		]
+	}
+}
