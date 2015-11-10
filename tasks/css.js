@@ -5,7 +5,7 @@ var config = require('../config'),
 	concat = require('gulp-concat'),
 	connect = require('gulp-connect'),
 	postcss = require('gulp-postcss'),
-	scss = require('postcss-scss'),
+	syntax = require('postcss-scss'),
 	plugins = [
 		require('postcss-mixins')(),
 		require('postcss-nested-props')(),
@@ -19,10 +19,11 @@ var config = require('../config'),
 		require('postcss-focus')(),
 		require('postcss-color-function')(),
 		require('webpcss').default({
-			webpClass: [config.docClass, 'webp'].join(''),
-			noWebpClass: [config.docClass, 'no-webp'].join(''),
+			webpClass: ['.', config.modernizr.classPrefix, 'webp'].join(''),
+			noWebpClass: ['.', config.modernizr.classPrefix, 'no-webp'].join(''),
 		}),
 		require('autoprefixer')(),
+		
 		// optimisations
 		require('postcss-discard-comments')(),
 		require('postcss-discard-empty')(),
@@ -41,7 +42,7 @@ var config = require('../config'),
 		require('postcss-zindex')(),
 		require('postcss-reduce-idents')(),
 		require('css-mqpacker')(),
-		// require('csswring')()
+		require('csswring')()
 	]
 	;
 
@@ -54,7 +55,7 @@ var task = function () {
 		.pipe(plumber())
 		.pipe(concat(paths.css.name))
 		.pipe(postcss(plugins, {
-			syntas: scss
+			syntax: syntax
 		}))
 		.pipe(plumber.stop())
 		.pipe(gulp.dest(paths.dest))
