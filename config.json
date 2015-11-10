@@ -1,11 +1,6 @@
 {
 	"port": 8001,
 	"docClass": ".g-doc_",
-	"ftp": {
-		"host": "hostname",
-		"user": "username",
-		"pass": "password"
-	},
 	"modules": {
 		"block": {},
 		"b-block": {},
