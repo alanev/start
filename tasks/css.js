@@ -1,6 +1,7 @@
 // modules
 var config = require('../config'),
 	gulp = require('gulp'),
+	beep = require('./beep'),
 	plumber = require('gulp-plumber'),
 	concat = require('gulp-concat'),
 	connect = require('gulp-connect'),
@@ -51,8 +52,8 @@ var paths = require('./paths');
 
 // task
 var task = function () {
-	return gulp.src(paths.css.src)
-		.pipe(plumber())
+	gulp.src(paths.css.src)
+		.pipe(plumber(beep))
 		.pipe(concat(paths.css.name))
 		.pipe(postcss(plugins, {
 			syntax: syntax

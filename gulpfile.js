@@ -14,8 +14,7 @@ gulp.task('html', tasks.html);
 gulp.task('css', tasks.css);
 
 // Js
-gulp.task('js:dev', tasks.js.dev);
-gulp.task('js', tasks.js.build);
+gulp.task('js', tasks.js);
 
 // Images
 gulp.task('img', function () {

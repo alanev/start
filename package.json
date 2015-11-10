@@ -5,7 +5,9 @@
   "author": "alanev <e@alanev.ru>",
   "scripts": {
     "init": "npm install && gulp modernizr && rd .git /s/q && git init",
-    "start": "code . && gulp watch"
+    "start": "code . && gulp watch",
+    "build": "gulp img && gulp css js --production && gulp upload:all upload:archive",
+    "test": "gulp test:html test:css test:js test:speed"
   },
   "devDependencies": {
     "autoprefixer": "^6.0.3",
@@ -30,6 +32,7 @@
     "gulp-postxml": "^0.2.4",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.4.2",
+    "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5",
     "gulp-webp": "^2.3.0",
     "gulp-zip": "^3.0.2",

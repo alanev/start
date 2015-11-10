@@ -1,5 +1,6 @@
 // modules
 var gulp = require('gulp'),
+	beep = require('./beep'),
 	plumber = require('gulp-plumber'),
 	connect = require('gulp-connect'),
 	
@@ -15,7 +16,9 @@ var gulp = require('gulp'),
 		}),
 		require('postxml-beml')(),
 		require('postxml-imgalt')(),
-		require('postxml-placeholder')(),
+		require('postxml-placeholder')({
+			url: 'http://placehold.alanev.ru/'
+		}),
 		require('postxml-image-size')({
 			cwd: 'cwd'
 		}),
@@ -30,7 +33,7 @@ var paths = require('./paths');
 // task
 var task = function () {
 	return gulp.src(paths.html.src)
-		.pipe(plumber())
+		.pipe(plumber(beep))
 		.pipe(postxml(plugins))
 		.pipe(plumber.stop())
 		.pipe(gulp.dest(paths.html.dest))

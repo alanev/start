@@ -3,6 +3,7 @@ var gulp = require('gulp'),
 	connect = require('gulp-connect'),
 	
 	// utils
+	gutil = require('gulp-util'),
 	buffer = require('vinyl-buffer'),
 	source = require('vinyl-source-stream'),
 	
@@ -15,21 +16,12 @@ var gulp = require('gulp'),
 var paths = require('./paths');
 
 // task
-var tasks = {};
-tasks.dev = function () {
+var tasks = function () {
 	return browserify(paths.src + 'app/app.js')
 		.bundle()
 		.pipe(source('app.js'))
-		.pipe(gulp.dest(paths.dest))
-		.pipe(connect.reload())
-		;
-}
-tasks.build = function () {
-	return browserify(paths.src + 'app/app.js')
-		.bundle()
-		.pipe(source('app.js'))
-		.pipe(buffer())
-		.pipe(uglify())
+		.pipe(gutil.env.production ? buffer() : gutil.noop())
+		.pipe(gutil.env.production ? uglify() : gutil.noop())
 		.pipe(gulp.dest(paths.dest))
 		.pipe(connect.reload())
 		;

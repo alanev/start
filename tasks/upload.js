@@ -5,27 +5,28 @@ var gulp = require('gulp'),
 
 // settings
 var paths = require('./paths'),
-	ftppass = require('../config').ftp,
+	ftppass = require('../ftp'),
 	pkg = require('../package.json')
 	;
 ftppass.remotePath = "/" + pkg.name;
 
 // task
-var tasks = {};
-tasks.fpt = function () {
-	gulp.src([
-			paths.dest + '**',
-			'!' + paths.dest + '**.{png,jpg,gif,svg,webp}'
-		])
-		.pipe(ftp(ftppass))
-		;
-};
-tasks.all = function () {
-	gulp.src([
-			paths.dest + '**'
-		])
-		.pipe(ftp(ftppass))
-		;
+var tasks = {
+	ftp: function () {
+		gulp.src([
+				paths.dest + '**',
+				'!' + paths.dest + '**.{png,jpg,gif,svg,webp}'
+			])
+			.pipe(ftp(ftppass))
+			;
+	},
+	all: function () {
+		gulp.src([
+				paths.dest + '**'
+			])
+			.pipe(ftp(ftppass))
+			;
+	}
 };
 tasks.archive = function () {
 	gulp.src([
@@ -47,4 +48,6 @@ tasks.archive = function () {
 		.pipe(zip(pkg.name + '.dev.zip'))
 		.pipe(ftp(ftppass))
 		;
-}
+};
+
+module.exports = tasks;
