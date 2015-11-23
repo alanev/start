@@ -4,12 +4,8 @@ var gulp = require('gulp'),
 	
 	// utils
 	concat = require('gulp-concat'),
-	gutil = require('gulp-util'),
-	buffer = require('vinyl-buffer'),
-	source = require('vinyl-source-stream'),
 	
 	// js
-	browserify = require('browserify'),
 	uglify = require('gulp-uglify')
 	;
 
