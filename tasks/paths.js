@@ -3,6 +3,15 @@ var src = 'modules/',
 	paths = {
 		src:  src,
 		dest: dest,
+		js: {
+			src: [
+				src + 'i-*/*.js',
+				src + 'g-*/*.js',
+				src + 'b-*/*.js',
+				src + '**/*.js'
+			],
+			name:  'app.js'
+		},
 		css: {
 			src: [
 				src + 'i-*/*.{css,scss}',
