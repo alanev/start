@@ -14,6 +14,7 @@ var gulp = require('gulp'),
 				return 'modules/' + block + '/' + block + '.htm';
 			}
 		}),
+		require('postxml-import')(),
 		require('postxml-beml')(),
 		require('postxml-imgalt')(),
 		require('postxml-placeholder')({
