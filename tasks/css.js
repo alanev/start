@@ -9,7 +9,6 @@ var config = require('../config'),
 	syntax = require('postcss-scss'),
 	plugins = [
 		require('postcss-mixins')(),
-		require('postcss-nested-props')(),
 		require('postcss-nested')(),
 		require('postcss-custom-media')(),
 		require('postcss-simple-vars')(),
