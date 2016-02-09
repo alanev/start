@@ -1,5 +1,5 @@
 var src = 'modules/',
-	dest = 'cwd/',
+	dest = 'build/',
 	paths = {
 		src:  src,
 		dest: dest,
@@ -14,7 +14,7 @@ var src = 'modules/',
 		},
 		css: {
 			src: [
-				src + 'i-*/*.{css,scss}',
+				src + 'u-*/*.{css,scss}',
 				src + 'g-*/*.{css,scss}',
 				src + 'b-*/*.{css,scss}',
 				src + '**/*.{css,scss}'

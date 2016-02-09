@@ -35,12 +35,12 @@ gulp.task('sprite:make', tasks.sprite);
 gulp.task('modules', tasks.modules);
 gulp.task('server', tasks.server);
 gulp.task('open', tasks.watch);
-gulp.task('dev', ['img', 'html', 'css', 'js:dev', 'watch', 'open']);
+gulp.task('dev', ['img', 'html', 'css', 'js', 'watch', 'open']);
 gulp.task('watch', ['server'], tasks.watch);
 
 // Build
 gulp.task('build', function () {
-	sync('img', ['css','js:build'], ['upload:all', 'upload:archive']);
+	sync('img', ['css','js'], ['upload:all', 'upload:archive']);
 });
 
 // Test

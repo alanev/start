@@ -1,11 +1,9 @@
 
 *.zip
 ftp.json
-cwd
-src/blocks
-src/img
-src/psd
-src/preview
+build
+src
+tests
 
 # Visual Studio Code User Setting
 .settings

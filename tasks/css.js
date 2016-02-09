@@ -12,12 +12,17 @@ var config = require('../config'),
 		require('postcss-nested')(),
 		require('postcss-custom-media')(),
 		require('postcss-simple-vars')(),
+        require('postcss-conditionals')(),
 		require('postcss-custom-selectors')(),
 		require('postcss-short-size'),
 		require('postcss-short-position'),
 		require('postcss-selector-not')(),
 		require('postcss-focus')(),
 		require('postcss-color-function')(),
+        require('lost')({
+            gutter: '0',
+            flexbox: 'flex'
+        }),
 		require('webpcss').default({
 			webpClass: ['.', config.modernizr.classPrefix, 'webp'].join(''),
 			noWebpClass: ['.', config.modernizr.classPrefix, 'no-webp'].join(''),

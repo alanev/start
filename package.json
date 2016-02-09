@@ -1,12 +1,12 @@
 {
   "name": "start",
   "version": "1.0.0",
-  "description": "Start for front-end.",
+  "description": "Start for front-end with required modules.",
   "author": "alanev <e@alanev.ru>",
   "scripts": {
     "init": "npm install && gulp modernizr && rd .git /s/q && git init",
     "start": "code . && gulp watch",
-    "build": "gulp img && gulp css js --production && gulp upload:all upload:archive",
+    "build": "gulp img html css js",
     "test": "gulp test:html test:css test:js test:speed"
   },
   "devDependencies": {
@@ -38,12 +38,14 @@
     "gulp-webp": "^2.3.0",
     "gulp-zip": "^3.0.2",
     "gulp.spritesmith": "^4.2.2",
+    "lost": "^6.7.1",
     "merge-stream": "^1.0.0",
     "modernizr": "^3.2.0",
     "open": "0.0.5",
     "postcss-calc": "^5.0.0",
     "postcss-color-function": "^2.0.0",
     "postcss-colormin": "^2.1.7",
+    "postcss-conditionals": "^2.0.1",
     "postcss-convert-values": "^2.3.4",
     "postcss-custom-media": "^5.0.0",
     "postcss-custom-selectors": "^3.0.0",
