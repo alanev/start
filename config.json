@@ -1,13 +1,45 @@
 {
 	"port": 8001,
 	"modules": {
-		"block": {},
-		"b-block": {},
-		"i-test": {}
+        
+        "g-app": {
+            "js": true,
+            "html": false,
+            "css": false
+        },
+        "g-doc": {
+            "html": false
+        },
+        "g-foot": {
+            "css": false
+        },
+        "g-head": {
+            "css": false
+        },
+        "g-page": {
+            "html": false
+        },
+        "g-errors": {},
+        
+        "u-support": {
+            "html": false,
+            "css": false
+        },
+        "u-mixins": {
+            "html": false
+        },
+		"u-modernizr": {
+            "js": true,
+            "html": false,
+            "css": false
+        },
+		"u-vars": {
+            "html": false
+        }
 	},
 	"modernizr": {
 		"minify": true,
-		"classPrefix": "g-doc_",
+		"classPrefix": "u-support_",
 		"options": [
 			"setClasses"
 		],
