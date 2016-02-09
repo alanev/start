@@ -15,7 +15,7 @@ var task = function () {
 		gulp.start('css');
 	});
 	watch(paths.src + '**/*.js', function () {
-		gulp.start('js:dev');
+		gulp.start('js');
 	});
 	
 	watch(paths.img.src, function () {

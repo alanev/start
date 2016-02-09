@@ -4,7 +4,7 @@ var modernizr = require('modernizr'),
 
 var task = function () {
 	modernizr.build(require('../config').modernizr, function (result) {
-		fs.writeFile(paths.dest + 'modernizr.js', result);
+		fs.writeFile(paths.src + 'u-modernizr/modernizr.js', result);
 	});
 };
 

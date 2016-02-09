@@ -4,13 +4,13 @@ var src = 'modules/',
 		src:  src,
 		dest: dest,
 		js: {
-			src: [
-				src + 'i-*/*.js',
-				src + 'g-*/*.js',
-				src + 'b-*/*.js',
-				src + '**/*.js'
-			],
-			name:  'app.js'
+			src: src + 'g-app/',
+			name: {
+                defer: 'defer',
+                async: 'async',
+                enter: 'app.js',
+                bundle: 'bundle.js'
+            }
 		},
 		css: {
 			src: [
