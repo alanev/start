@@ -4,8 +4,10 @@ var paths = require('./paths');
 var path = require('path');
 
 var tmpls = {
-	html: String(fs.readFileSync(__dirname + '/tmpl.htm')),
-	css: String(fs.readFileSync(__dirname + '/tmpl.scss'))
+	html: String(fs.readFileSync(__dirname + '/htm.tmpl')),
+	css: String(fs.readFileSync(__dirname + '/scss.tmpl')),
+	js: String(fs.readFileSync(__dirname + '/js.tmpl')),
+	issues: String(fs.readFileSync(__dirname + '/issues.tmpl'))
 };
 
 var task = function () {
@@ -18,9 +20,22 @@ var task = function () {
 			for (var key in modules) {
 				var dir = path.join(paths.src, key);
 				if (!fs.existsSync(dir)) {
+                    
+                    var settings = modules[key];
+                    
 					fs.mkdirSync(dir);
-					fs.writeFileSync(path.join(dir, key + '.htm'), tmpls.html);
-					fs.writeFileSync(path.join(dir, key + '.scss'), tmpls.css.replace('{{name}}', key));
+                    if (settings.js === true) {
+					   fs.writeFileSync(path.join(dir, key + '.js'), tmpls.js.replace('{{name}}', key));
+                    }
+                    if (settings.issues != false && !/^(g-|u-)/.test(key)) {
+					   fs.writeFileSync(path.join(dir, key + '.issues.md'), tmpls.issues.replace('{{name}}', key));
+                    }
+                    if (settings.html != false) {
+					   fs.writeFileSync(path.join(dir, key + '.htm'), tmpls.html);
+                    }
+                    if (settings.css != false) {
+					   fs.writeFileSync(path.join(dir, key + '.scss'), tmpls.css.replace('{{name}}', key));
+                    }
 				}
 			}
 		}
