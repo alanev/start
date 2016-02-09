@@ -37,13 +37,15 @@ tasks.archive = function () {
 		;
 	gulp.src([
 			paths.src + '**',
-			paths.dest + '**',
+            'tasks/**',
+            'pages/**',
+            'docs/**',
 			'*',
 			'!node_modules',
 			'!src',
 			'!ftp.json'
 		],{
-			base: __dirname
+			base: process.cwd()
 		})
 		.pipe(zip(pkg.name + '.dev.zip'))
 		.pipe(ftp(ftppass))
