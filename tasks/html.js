@@ -21,7 +21,7 @@ var gulp = require('gulp'),
 			url: 'http://placehold.alanev.ru/'
 		}),
 		require('postxml-image-size')({
-			cwd: 'cwd'
+			cwd: path.dest
 		}),
 		require('postxml-wrap')(),
 		require('postxml-repeat')()
