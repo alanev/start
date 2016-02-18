@@ -10,8 +10,7 @@ var gulp = require('gulp'),
     connect = require('gulp-connect'),
 	
 	// js
-	webpack = require('webpack'),
-	uglify = require('gulp-uglify')
+	webpack = require('webpack')
 	;
 
 // paths
