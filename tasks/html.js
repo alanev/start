@@ -1,3 +1,6 @@
+// paths
+var paths = require('./paths');
+
 // modules
 var gulp = require('gulp'),
 	beep = require('./beep'),
@@ -8,13 +11,13 @@ var gulp = require('gulp'),
 	postxml = require('gulp-postxml'),
 	plugins = [
 		require('postxml-import')({
-			selector: 'import[module]',
-			attr: 'module',
-			path: function (block) {
-				return 'modules/' + block + '/' + block + '.htm';
+			path: function (attr) {
+                if (!/(\\|\/|\.)/.test(attr)) {
+                    return 'modules/' + attr + '/' + attr + '.htm';
+                }
+				return attr;
 			}
 		}),
-		require('postxml-import')(),
 		require('postxml-beml')(),
 		require('postxml-imgalt')(),
 		require('postxml-placeholder')({
@@ -27,9 +30,6 @@ var gulp = require('gulp'),
 		require('postxml-repeat')()
 	]
 	;
-
-// paths
-var paths = require('./paths');
 
 // task
 var task = function () {
