@@ -2,11 +2,6 @@
 	"port": 8001,
 	"modules": {
         
-        "g-app": {
-            "js": true,
-            "html": false,
-            "css": false
-        },
         "g-doc": {
             "html": false
         },

@@ -1,4 +1,4 @@
-import test from '../test/test.js';
+import test from 'test/test.js';
 
 document.addEventListener('DOMContentLoaded', function () {
 	test('log');

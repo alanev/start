@@ -10,22 +10,34 @@ var gulp = require('gulp'),
     connect = require('gulp-connect'),
 	
 	// js
-	webpack = require('webpack')
+	webpack = require('webpack'),
+    glob = require('glob')
 	;
 
 // paths
-var paths = require('./paths');
+var paths = require('./paths');;
 
 // task
 var tasks = function () {
+    var files = {};
+    glob.sync(
+            path.join(
+                process.cwd(), `${paths.src}*.js`
+            )
+        ).forEach(function (p) {
+            files[path.parse(p).base] = p;
+        });
+    
 	webpack({
-        entry: {
-            defer: path.join(process.cwd(), paths.js.src, paths.js.name.defer + '.' + paths.js.name.enter),
-            async: path.join(process.cwd(), paths.js.src, paths.js.name.async + '.' + paths.js.name.enter)
-        },
+        entry: files,
         output: {
-            path: path.join(process.cwd(), paths.dest),
-            filename: '[name].' + paths.js.name.bundle
+            filename: '[name]',
+            path: path.join(process.cwd(), paths.dest)
+        },
+        resolve: {
+            root: [
+                path.resolve('./modules')
+            ]
         },
         module: {
             loaders: [{
@@ -41,10 +53,7 @@ var tasks = function () {
             new webpack.optimize.UglifyJsPlugin()
         ]
 	}, function (err, stats) {
-        gulp.src([
-                path.join(paths.dest, paths.js.name.defer + '.' + paths.js.name.bundle),
-                path.join(paths.dest, paths.js.name.async + '.' + paths.js.name.bundle)
-            ])
+        gulp.src(path.join(paths.dest, `${paths.src}.js`))
             .pipe(connect.reload())
     });
 };

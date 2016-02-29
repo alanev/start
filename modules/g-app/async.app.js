@@ -1,1 +1,0 @@
-var m = require('../u-modernizr/modernizr.js');
