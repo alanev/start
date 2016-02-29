@@ -1,46 +1,48 @@
 .g-errors{
 	
 	/*elements*/
-	&__item{
-		display: none;
-		position: fixed;
-		z-index: 10000;
-		top: 0;
-		right: 0;
-		left: 0;
-		box-sizing: border-box;
-		background: #d63f3f;
-		padding: 0 20px;
-		text-align: center;
-		font-family: arial;
-		font-size: 18px;
-		font-weight: 700;
-		line-height: 30px;
-		opacity: 1;
-	}
-	&__popup{
-		bottom: 0;
-		padding: 10% 0;
-	}
-	&__logo{
-		outline: 0;
-		border: 0;
-		margin: 20px;
-		opacity: .8;
-		
-		&:hover{
-			opacity: 1;
-		}
-	}
+	&__{
+        &item{
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            top: 0;
+            right: 0;
+            left: 0;
+            box-sizing: border-box;
+            background: #d63f3f;
+            padding: 0 20px;
+            text-align: center;
+            font-family: arial;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 30px;
+            opacity: 1;
+        }
+        &popup{
+            bottom: 0;
+            padding: 10% 0;
+        }
+        &logo{
+            outline: 0;
+            border: 0;
+            margin: 20px;
+            opacity: .8;
+            
+            &:hover{
+                opacity: 1;
+            }
+        }
+        &old{
+            .u-support_no-csstransforms &,
+            .u-support_no-csscalc &,
+            .u-support_no-flexbox &
+            {
+                display: block;
+            }
+        }
+    }
 	.g-doc_no-flexbox .g-page > :not(&){
 		display: none;
-	}
-	&__old{
-		.u-support_no-csstransforms &,
-		.u-support_no-csscalc &,
-		.u-support_no-flexbox &
-		{
-			display: block;
-		}
 	}
 }
