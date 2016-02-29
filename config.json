@@ -35,6 +35,11 @@
         },
 		"u-vars": {
             "html": false
+        },
+        
+        "i-icons": {
+            "html": false,
+            "css": false
         }
 	},
 	"modernizr": {
