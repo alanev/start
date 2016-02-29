@@ -1,50 +1,30 @@
-var src = 'modules/',
+var src = 'src/',
 	dest = 'build/',
+    modules = 'modules/',
 	paths = {
 		src:  src,
 		dest: dest,
-		js: {
-			src: src + 'g-app/',
-			name: {
-                defer: 'defer',
-                async: 'async',
-                enter: 'app.js',
-                bundle: 'bundle.js'
-            }
-		},
-		css: {
-			src: [
-				src + 'u-*/*.{css,scss}',
-				src + 'g-*/*.{css,scss}',
-				src + 'b-*/*.{css,scss}',
-				src + '**/*.{css,scss}'
-			],
-			name:  'styles.css'
-		},
-		html: {
-			src: 'pages/*.+(htm|html)',
-			dest: dest
-		},
+        modules: modules,
 		img: {
 			name: '**/*.{png,jpg,gif,svg}',
 			src: [
-				src + '**/*.{png,jpg,gif,svg}',
-				'!' + src + '**/i-*.png'
+				modules + '**/*.{png,jpg,gif,svg}',
+				'!' + modules + '**/i-*.png'
 			],
 			dest: dest + 'img/'
 		},
 		sprite: {
 			block: 'i-icons',
-			src: src + '**/i-*.png',
+			src: modules + '**/i-*.png',
 			css: {
 				name: 'i-icons' + '.css',
-				dest: src + 'i-icons'
+				dest: modules + 'i-icons'
 			},
 			img: {
 				name: 'icons.png',
-				dest: src + 'i-icons'
+				dest: modules + 'i-icons'
 			},
-			tmpl: src + 'i-icons' + '/' + 'i-icons' + '.hbs'
+			tmpl: modules + 'i-icons' + '/' + 'i-icons' + '.hbs'
 		}
 	};
 

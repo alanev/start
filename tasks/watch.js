@@ -7,14 +7,15 @@ var paths = require('./paths');
 // task
 var task = function () {
 	
-	watch([paths.html.src, paths.src + '**/*.htm'], function () {
+	watch([paths.modules + '**/*.htm', paths.src + '*.htm'], function () {
 		gulp.start('html');
 	});
-
-	watch(paths.src + '**/*.{css,scss}', function () {
+    
+	watch([paths.modules + '**/*.{scss,css}', paths.src + '*.css'], function () {
 		gulp.start('css');
 	});
-	watch(paths.src + '**/*.js', function () {
+    
+	watch([paths.modules + '**/*.js', paths.src + '*.js'], function () {
 		gulp.start('js');
 	});
 	

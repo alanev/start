@@ -3,10 +3,11 @@ var paths = require('./paths');
 
 // modules
 var config = require('../config'),
-	gulp = require('gulp'),
 	beep = require('./beep'),
+	gulp = require('gulp'),
 	plumber = require('gulp-plumber'),
 	connect = require('gulp-connect'),
+    changed = require('gulp-changed'),
     path = require('path'),
     
 	postcss = require('gulp-postcss'),
@@ -62,7 +63,8 @@ var config = require('../config'),
 
 // task
 var task = function () {
-	gulp.src(paths.css.src)
+	gulp.src(`${paths.src}*.css`)
+        .pipe(changed(paths.dest))
 		.pipe(plumber(beep))
 		.pipe(postcss(plugins, {
 			syntax: syntax

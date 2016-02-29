@@ -18,7 +18,7 @@ var task = function () {
 			var file = String(data);
 			var modules = JSON.parse(file)['modules'];
 			for (var key in modules) {
-				var dir = path.join(paths.src, key);
+				var dir = path.join(paths.modules, key);
 				if (!fs.existsSync(dir)) {
                     
                     var settings = modules[key];

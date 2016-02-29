@@ -2,7 +2,6 @@
 *.zip
 ftp.json
 build
-src
 tests
 
 # Visual Studio Code User Setting
