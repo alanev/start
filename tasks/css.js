@@ -1,13 +1,22 @@
+// paths
+var paths = require('./paths');
+
 // modules
 var config = require('../config'),
 	gulp = require('gulp'),
 	beep = require('./beep'),
 	plumber = require('gulp-plumber'),
-	concat = require('gulp-concat'),
 	connect = require('gulp-connect'),
+    path = require('path'),
+    
 	postcss = require('gulp-postcss'),
 	syntax = require('postcss-scss'),
 	plugins = [
+        require('postcss-import')({
+            resolve: function (id, basedir, importOptions) {
+                return path.resolve(paths.modules, id, `${id}.scss`);
+            }
+        }),
 		require('postcss-mixins')(),
 		require('postcss-nested')(),
 		require('postcss-custom-media')(),
@@ -51,14 +60,10 @@ var config = require('../config'),
 	]
 	;
 
-// paths
-var paths = require('./paths');
-
 // task
 var task = function () {
 	gulp.src(paths.css.src)
 		.pipe(plumber(beep))
-		.pipe(concat(paths.css.name))
 		.pipe(postcss(plugins, {
 			syntax: syntax
 		}))
