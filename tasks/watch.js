@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
-	watch = require('gulp-watch');
+	watch = require('gulp-watch'),
+	sync = require('run-sequence');
 
 // paths
 var paths = require('./paths');
@@ -8,15 +9,15 @@ var paths = require('./paths');
 var task = function () {
 	
 	watch([paths.modules + '**/*.htm', paths.src + '*.htm'], function () {
-		gulp.start('html');
+		sync('html', 'test:html');
 	});
     
 	watch([paths.modules + '**/*.{scss,css}', paths.src + '*.css'], function () {
-		gulp.start('css');
+		sync('css');
 	});
     
 	watch([paths.modules + '**/*.js', paths.src + '*.js'], function () {
-		gulp.start('js');
+		sync('js', 'test:js');
 	});
 	
 	watch(paths.img.src, function () {
