@@ -37,7 +37,10 @@ var tasks = {
 	},
 	css: function () {
 		return gulp.src(paths.dest + '*.css')
-				.pipe(csslint())
+				.pipe(csslint({
+                    'font-faces': false,
+                    'font-sizes': false
+                }))
 				.pipe(csslint.reporter());
 	},
 	js: function () {
