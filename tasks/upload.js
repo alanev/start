@@ -37,6 +37,7 @@ tasks.archive = function () {
 		;
 	gulp.src([
 			paths.src + '**',
+            paths.modules + '**',
             'tasks/**',
             'pages/**',
             'docs/**',
