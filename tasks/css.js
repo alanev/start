@@ -37,6 +37,8 @@ var config = require('../config'),
 			webpClass: ['.', config.modernizr.classPrefix, 'webp'].join(''),
 			noWebpClass: ['.', config.modernizr.classPrefix, 'no-webp'].join(''),
 		}),
+        require('postcss-extend')(),
+        require('postcss-write-svg')(),
 		require('autoprefixer')(),
 		
 		// optimisations
