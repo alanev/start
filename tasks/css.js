@@ -15,7 +15,10 @@ var config = require('../config'),
 	plugins = [
         require('postcss-import')({
             resolve: function (id, basedir, importOptions) {
-                return path.resolve(paths.modules, id, `${id}.scss`);
+                if (!/(\\|\/|\.)/.test(id)) {
+                    return glob.sync(paths.modules + id + '/*.scss');
+                }
+                return id;
             }
         }),
 		require('postcss-mixins')(),
