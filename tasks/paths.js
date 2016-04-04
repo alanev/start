@@ -4,14 +4,14 @@ var src = 'src/',
 	paths = {
 		src:  src,
 		dest: dest,
-        modules: modules,
+    modules: modules,
 		img: {
 			name: '**/*.{png,jpg,gif,svg}',
 			src: [
 				modules + '**/*.{png,jpg,gif,svg}',
 				'!' + modules + '**/i-*.png'
 			],
-			dest: dest + 'img/'
+			dest: dest + 'assets/img/'
 		},
 		fonts: {
 			src: modules + 'g-fonts/*.{woff,woff2}',
