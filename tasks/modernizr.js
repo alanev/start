@@ -3,8 +3,10 @@ var modernizr = require('modernizr'),
 	paths = require('./paths');
 
 var task = function () {
-	modernizr.build(require('../config').modernizr, function (result) {
-		fs.writeFile(paths.src + 'u-modernizr/modernizr.js', result);
+	var config = require('../config').modernizr;
+	var name = config.classPrefix.replace(/_$/, '');
+	modernizr.build(config, function (result) {
+		fs.writeFile(`${paths.modules}${name}/${name}.js`, result);
 	});
 };
 

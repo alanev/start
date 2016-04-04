@@ -1,7 +1,6 @@
 {
 	"port": 8001,
 	"modules": {
-        
         "g-doc": {
             "html": false
         },
@@ -15,7 +14,7 @@
             "html": false
         },
         "g-errors": {},
-        
+
         "u-support": {
             "html": false,
             "css": false
@@ -31,7 +30,7 @@
 		"u-vars": {
             "html": false
         },
-        
+
         "i-icons": {
             "html": false,
             "css": false

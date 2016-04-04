@@ -1,1 +1,1 @@
-var m = require('u-modernizr/modernizr.js');
+var m = require('u-support/u-support.js');
