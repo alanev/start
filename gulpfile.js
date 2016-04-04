@@ -16,7 +16,7 @@ gulp.task('css', tasks.css);
 // Js
 gulp.task('js', tasks.js);
 
-// Images
+// Assets
 gulp.task('img', function () {
 	sync('img:clean', ['img:min', 'img:webp']);
 });
@@ -39,11 +39,6 @@ gulp.task('server', tasks.server);
 gulp.task('open', tasks.watch);
 gulp.task('dev', ['img', 'html', 'css', 'js', 'watch', 'open']);
 gulp.task('watch', ['server'], tasks.watch);
-
-// Build
-gulp.task('build', function () {
-	sync('img', ['css','js'], ['upload:all', 'upload:archive']);
-});
 
 // Test
 gulp.task('test', ['test:html', 'test:css', 'test:js', 'test:speed']);

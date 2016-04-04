@@ -4,10 +4,10 @@
   "description": "Start for front-end with required modules.",
   "author": "alanev <e@alanev.ru>",
   "scripts": {
-    "init": "npm install && gulp modernizr && rd .git /s/q && git init",
-    "start": "code . && gulp watch",
-    "build": "gulp img html css js",
-    "test": "gulp test:html test:css test:js test:speed"
+    "postinstall": "gulp modernizr",
+    "start": "gulp build watch",
+    "build": "gulp sprite && gulp img && gulp html css js && npm run test",
+    "test": "gulp test:html test:css test:js"
   },
   "devDependencies": {
     "autoprefixer": "^6.0.3",
