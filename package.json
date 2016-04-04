@@ -56,7 +56,7 @@
     "postcss-extend": "^1.0.1",
     "postcss-focus": "^1.0.0",
     "postcss-font-family": "^2.0.0",
-    "postcss-import": "^8.0.2",
+    "postcss-import": "^8.1.0",
     "postcss-merge-longhand": "^2.0.1",
     "postcss-merge-rules": "^2.0.1",
     "postcss-minify-selectors": "^2.0.1",
