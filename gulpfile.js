@@ -31,6 +31,8 @@ gulp.task('sprite', function () {
 });
 gulp.task('sprite:make', tasks.sprite);
 
+gulp.task('fonts', tasks.fonts);
+
 // Dev
 gulp.task('modules', tasks.modules);
 gulp.task('server', tasks.server);

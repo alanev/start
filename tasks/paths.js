@@ -13,6 +13,10 @@ var src = 'src/',
 			],
 			dest: dest + 'img/'
 		},
+		fonts: {
+			src: modules + 'g-fonts/*.{woff,woff2}',
+			dest: dest + 'assets/fotns'
+		}
 		sprite: {
 			block: 'i-icons',
 			src: modules + '**/i-*.png',
