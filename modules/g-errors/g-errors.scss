@@ -1,5 +1,5 @@
 .g-errors{
-	
+
 	/*elements*/
 	&__{
         &item{
@@ -28,7 +28,7 @@
             border: 0;
             margin: 20px;
             opacity: .8;
-            
+
             &:hover{
                 opacity: 1;
             }
@@ -42,7 +42,7 @@
             }
         }
     }
-	.g-doc_no-flexbox .g-page > :not(&){
+	.u-support_no-flexbox .g-page > :not(&){
 		display: none;
 	}
 }
