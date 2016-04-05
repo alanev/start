@@ -8,9 +8,9 @@ var config = require('../config'),
 	plumber = require('gulp-plumber'),
 	connect = require('gulp-connect'),
 	path = require('path'),
-	glob = require('glob'),
+	glob = require('glob')
 
-	postcss = require('gulp-postcss'),
+postcss = require('gulp-postcss'),
 	syntax = require('postcss-scss'),
 	plugins = [
 		require('postcss-import')({
