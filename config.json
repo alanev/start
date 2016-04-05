@@ -16,16 +16,12 @@
         "g-errors": {},
 
         "u-support": {
+            "js": true,
             "html": false,
             "css": false
         },
         "u-mixins": {
             "html": false
-        },
-		"u-modernizr": {
-            "js": true,
-            "html": false,
-            "css": false
         },
 		"u-vars": {
             "html": false
