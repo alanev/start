@@ -7,19 +7,19 @@ var config = require('../config'),
 	gulp = require('gulp'),
 	plumber = require('gulp-plumber'),
 	connect = require('gulp-connect'),
-    path = require('path'),
+  path = require('path'),
 
 	postcss = require('gulp-postcss'),
 	syntax = require('postcss-scss'),
 	plugins = [
-        require('postcss-import')({
-            resolve: function (id, basedir, importOptions) {
-                if (!/(\\|\/|\.)/.test(id)) {
-                    return glob.sync(paths.modules + id + '/*.scss');
-                }
-                return id;
+    require('postcss-import')({
+        resolve: function (id, basedir, importOptions) {
+            if (!/(\\|\/|\.)/.test(id)) {
+                return glob.sync(paths.modules + id + '/*.scss');
             }
-        }),
+            return id;
+        }
+    }),
 		require('postcss-mixins')(),
 		require('postcss-nested')(),
 		require('postcss-custom-media')(),
@@ -31,16 +31,16 @@ var config = require('../config'),
 		require('postcss-selector-not')(),
 		require('postcss-focus')(),
 		require('postcss-color-function')(),
-        require('lost')({
-            gutter: '0',
-            flexbox: 'flex'
-        }),
-		require('webpcss').default({
-			webpClass: ['.', config.modernizr.classPrefix, 'webp'].join(''),
-			noWebpClass: ['.', config.modernizr.classPrefix, 'no-webp'].join(''),
-		}),
-        require('postcss-extend')(),
-        require('postcss-write-svg')(),
+      require('lost')({
+          gutter: '0',
+          flexbox: 'flex'
+      }),
+			require('webpcss').default({
+				webpClass: ['.', config.modernizr.classPrefix, 'webp'].join(''),
+				noWebpClass: ['.', config.modernizr.classPrefix, 'no-webp'].join(''),
+			}),
+      require('postcss-extend')(),
+      require('postcss-write-svg')(),
 		require('autoprefixer')(),
 
 		// optimisations

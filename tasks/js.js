@@ -1,14 +1,14 @@
 // modules
 var gulp = require('gulp'),
 	connect = require('gulp-connect'),
-	
+
 	// utils
 	path = require('path'),
 	plumber = require('gulp-plumber'),
 	beep = require('./beep'),
 	concat = require('gulp-concat'),
     connect = require('gulp-connect'),
-	
+
 	// js
 	webpack = require('webpack'),
     glob = require('glob')
@@ -21,13 +21,13 @@ var paths = require('./paths');;
 var tasks = function () {
     var files = {};
     glob.sync(
-            path.join(
-                process.cwd(), `${paths.src}*.js`
-            )
-        ).forEach(function (p) {
-            files[path.parse(p).base] = p;
-        });
-    
+        path.join(
+          process.cwd(), `${paths.src}*.js`
+        )
+      ).forEach(function (p) {
+        files[path.parse(p).base] = p;
+      });
+
 	webpack({
         entry: files,
         output: {

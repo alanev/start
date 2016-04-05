@@ -12,9 +12,9 @@ var gulp = require('gulp'),
 	plugins = [
 		require('postxml-import')({
 			path: function (attr) {
-                if (!/(\\|\/|\.)/.test(attr)) {
-                    return 'modules/' + attr + '/' + attr + '.htm';
-                }
+        if (!/(\\|\/|\.)/.test(attr)) {
+          return 'modules/' + attr + '/' + attr + '.htm';
+        }
 				return attr;
 			}
 		}),
