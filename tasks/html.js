@@ -6,8 +6,7 @@ var gulp = require('gulp'),
 	beep = require('./beep'),
 	plumber = require('gulp-plumber'),
 	connect = require('gulp-connect'),
-    changed = require('gulp-changed'),
-	
+
 	postcss = require('gulp-postcss'),
 	postxml = require('gulp-postxml'),
 	plugins = [
@@ -35,7 +34,6 @@ var gulp = require('gulp'),
 // task
 var task = function () {
 	return gulp.src(`${paths.src}*.htm`)
-        .pipe(changed(paths.dest))
 		.pipe(plumber(beep))
 		.pipe(postxml(plugins))
 		.pipe(plumber.stop())
