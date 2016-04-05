@@ -1,53 +1,53 @@
 {
-	"port": 8001,
-	"modules": {
-        "g-doc": {
-            "html": false
-        },
-        "g-foot": {
-            "css": false
-        },
-        "g-head": {
-            "css": false
-        },
-        "g-page": {
-            "html": false
-        },
-        "g-errors": {},
+  "port": 8001,
+  "modules": {
+    "g-doc": {
+      "html": false
+    },
+    "g-foot": {
+      "css": false
+    },
+    "g-head": {
+      "css": false
+    },
+    "g-page": {
+      "html": false
+    },
+    "g-errors": {},
 
-        "u-support": {
-            "js": true,
-            "html": false,
-            "css": false
-        },
-        "u-mixins": {
-            "html": false
-        },
-		"u-vars": {
-            "html": false
-        },
+    "u-support": {
+      "js": true,
+      "html": false,
+      "css": false
+    },
+    "u-mixins": {
+      "html": false
+    },
+    "u-vars": {
+      "html": false
+    },
 
-        "i-icons": {
-            "html": false,
-            "css": false
-        }
-	},
-	"modernizr": {
-		"minify": true,
-		"classPrefix": "u-support_",
-		"options": [
-			"setClasses"
-		],
-		"feature-detects": [
-			"css/calc",
-			"css/columns",
-			"css/flexbox",
-			"css/flexboxlegacy",
-			"css/flexboxtweener",
-			"css/flexwrap",
-			"css/transforms",
-			"img/webp",
-			"svg/inline"
-		]
-	}
+    "i-icons": {
+      "html": false,
+      "css": false
+    }
+  },
+  "modernizr": {
+    "minify": true,
+    "classPrefix": "u-support_",
+    "options": [
+      "setClasses"
+    ],
+    "feature-detects": [
+      "css/calc",
+      "css/columns",
+      "css/flexbox",
+      "css/flexboxlegacy",
+      "css/flexboxtweener",
+      "css/flexwrap",
+      "css/transforms",
+      "img/webp",
+      "svg/inline"
+    ]
+  }
 }
