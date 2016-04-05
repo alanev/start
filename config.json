@@ -18,6 +18,9 @@
       "html": false
     },
 
+    "b-svg": {},
+    "b-grid": {},
+
     "u-support": {
       "js": true,
       "html": false,
