@@ -23,14 +23,31 @@
             bottom: 0;
             padding: 10% 0;
         }
+        &browser{
+            display: inline-block;
+        }
         &logo{
-            outline: 0;
+            display: block;
+            size: 100px;
             border: 0;
             margin: 20px;
+            outline: 0;
+            
             opacity: .8;
-
+            
+            // mods
             &:hover{
                 opacity: 1;
+                
+                text-decoration: none;
+            }
+            &--{
+                &firefox{
+                    background: url(assets/img/g-errors__logo--firefox.png);
+                }
+                &chrome{
+                    background: url(assets/img/g-errors__logo--chrome.png);
+                }
             }
         }
         &old{
@@ -40,6 +57,7 @@
             {
                 display: block;
             }
+            display: block;
         }
     }
 	.u-support_no-flexbox .g-page > :not(&){
