@@ -1,43 +1,53 @@
 var gulp = require('gulp'),
 	del = require('del'),
 	flatten = require('gulp-flatten'),
-	imagemin = require('gulp-imagemin'),
-	webp = require('gulp-webp')
+	Imagemin = require('imagemin'),
+	webp = require('imagemin-webp')
 	;
 
 // paths
 var paths = require('./paths');
+var logger = (err, files) => {
+    if (err) console.error(err);
+    else {
+        // Define action
+        var action = 'Minified';
+        if (/\.webp$/.test(files[0].history[files[0].history.length - 1])) action = 'Convert to webp';
+        
+        // Log
+        console.log(`${action}: ${files.length} images.`);
+    }
+}
 
 // task
 var tasks = {
 	min: function () {
-		gulp.src(paths.img.src)
-			.pipe(flatten())
-			.pipe(imagemin({
-				optimizationLevel: 5,
+        new Imagemin()
+            .src(paths.img.src)
+            .dest(paths.img.dest)
+            .use(flatten())
+            .use(Imagemin.jpegtran({
 				progressive: true
-			}))
-			.pipe(gulp.dest(paths.img.dest))
-			;
+            }))
+            .use(Imagemin.optipng({
+				optimizationLevel: 5
+            }))
+            .run(logger);
+        
+        new Imagemin()
+            .src(paths.img.src)
+            .dest(paths.img.dest)
+            .use(flatten())
+            .use(webp({
+                quality: 50
+            }))
+            .run(logger);
 	},
 	clean: function () {
 		del([
 			paths.img.dest + '**',
 			paths.img.dest
 		]);
-	},
-	copy: function () {
-		gulp.src(paths.img.src)
-			.pipe(flatten())
-			.pipe(gulp.dest(paths.img.dest))
-			;
-	},
-	webp: function () {
-		gulp.src(paths.img.src)
-			.pipe(flatten())
-			.pipe(webp())
-			.pipe(gulp.dest(paths.img.dest))
-			;
 	}
 };
 

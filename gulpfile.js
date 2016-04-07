@@ -18,13 +18,10 @@ gulp.task('js', tasks.js);
 
 // Assets
 gulp.task('img', function () {
-	sync('img:clean', ['img:min', 'img:webp']);
+	sync('img:clean', 'img:min');
 });
-gulp.task('img:dev', ['img:clean', 'img:copy', 'img:webp']);
 gulp.task('img:min', tasks.img.min);
-gulp.task('img:copy', tasks.img.copy);
 gulp.task('img:clean', tasks.img.clean);
-gulp.task('img:webp', tasks.img.webp);
 
 gulp.task('sprite', function () {
 	sync('sprite:make', 'img:clean', 'img:min');
