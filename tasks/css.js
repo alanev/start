@@ -13,25 +13,28 @@ var config = require('../config'),
 postcss = require('gulp-postcss'),
 	syntax = require('postcss-scss'),
 	plugins = [
+		
 		require('postcss-import')({
 			resolve: function(id, basedir, importOptions) {
-				if (!/(\\|\/|\.)/.test(id)) {
+				if (!/(\\|\/|\.)/.test(id))
 					return glob.sync(paths.modules + id + '/*.scss');
-				}
 				return id;
 			}
 		}),
+		
+		// Sass
 		require('postcss-mixins')(),
 		require('postcss-nested')(),
-		require('postcss-custom-media')(),
+		require('postcss-extend')(),
 		require('postcss-simple-vars')(),
-		require('postcss-conditionals')(),
-		require('postcss-custom-selectors')(),
-		require('postcss-short-size'),
-		require('postcss-short-position'),
-		require('postcss-selector-not')(),
+		
+		// Future css
+		require('postcss-autoreset')(),
+		require('postcss-cssnext')(),
+		
+		// Helpers (shortcuts)
 		require('postcss-focus')(),
-		require('postcss-color-function')(),
+		require('postcss-short'),
 		require('lost')({
 			gutter: '0',
 			flexbox: 'flex'
@@ -40,29 +43,13 @@ postcss = require('gulp-postcss'),
 			webpClass: ['.', config.modernizr.classPrefix, 'webp'].join(''),
 			noWebpClass: ['.', config.modernizr.classPrefix, 'no-webp'].join(''),
 		}),
-		require('postcss-extend')(),
-		require('postcss-write-svg')(),
-		require('autoprefixer')(),
-
-		// optimisations
-		require('postcss-discard-comments')(),
-		require('postcss-discard-empty')(),
-		require('postcss-calc')(),
-		require('postcss-normalize-url')(),
-		require('postcss-minify-selectors')(),
-		require('postcss-merge-longhand')(),
-		// require('postcss-font-family')(),
-		require('postcss-convert-values')({
-			length: false,
-			angle: false
-		}),
-		require('postcss-colormin')(),
-		require('postcss-merge-rules')(),
-		// require('postcss-discard-unused')(),
-		require('postcss-zindex')(),
-		require('postcss-reduce-idents')(),
+		
+		// Optimisations
 		require('css-mqpacker')(),
-		require('csswring')()
+		require('cssnano')({
+			core: false,
+			autoprefixer: false
+		})
 	];
 
 // task

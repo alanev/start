@@ -51,16 +51,16 @@
             }
         }
         &old{
-            .u-support_no-csstransforms &,
-            .u-support_no-csscalc &,
-            .u-support_no-flexbox &
+            .u-support--no-csstransforms &,
+            .u-support--no-csscalc &,
+            .u-support--no-flexbox &
             {
                 display: block;
             }
             display: block;
         }
     }
-	.u-support_no-flexbox .g-page > :not(&){
+	.u-support--no-flexbox .g-page > :not(&){
 		display: none;
 	}
 }

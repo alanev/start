@@ -14,9 +14,6 @@
       "html": false
     },
     "g-errors": {},
-    "g-reset": {
-      "html": false
-    },
 
     "b-svg": {},
     "b-grid": {},
@@ -40,7 +37,7 @@
   },
   "modernizr": {
     "minify": true,
-    "classPrefix": "u-support_",
+    "classPrefix": "u-support--",
     "options": [
       "setClasses"
     ],
