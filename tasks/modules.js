@@ -7,8 +7,7 @@ var glob = require('glob');
 var tmpls = {
 	html: String(fs.readFileSync(__dirname + '/htm.tmpl')),
 	css: String(fs.readFileSync(__dirname + '/scss.tmpl')),
-	js: String(fs.readFileSync(__dirname + '/js.tmpl')),
-	issues: String(fs.readFileSync(__dirname + '/issues.tmpl'))
+	js: String(fs.readFileSync(__dirname + '/js.tmpl'))
 };
 
 var task = function () {
@@ -27,9 +26,6 @@ var task = function () {
 					fs.mkdirSync(dir);
 					if (settings.js === true) {
 						fs.writeFileSync(path.join(dir, key + '.js'), tmpls.js.replace(/{{name}}/g, key));
-					}
-					if (settings.issues != false && !/^(g-|u-)/.test(key)) {
-						fs.writeFileSync(path.join(dir, key + '.issues.md'), tmpls.issues.replace(/{{name}}/g, key));
 					}
 					if (settings.html != false) {
 						fs.writeFileSync(path.join(dir, key + '.htm'), tmpls.html);
