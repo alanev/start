@@ -6,7 +6,6 @@ var gulp = require('gulp'),
 	path = require('path'),
 	plumber = require('gulp-plumber'),
 	beep = require('./beep'),
-	concat = require('gulp-concat'),
     connect = require('gulp-connect'),
 
 	// js
