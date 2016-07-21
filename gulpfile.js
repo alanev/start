@@ -2,11 +2,6 @@ var gulp = require('gulp'),
 	sync = require('run-sequence'),
 	tasks = require('require-dir')('./tasks');
 
-// Upload
-gulp.task('upload:ftp', tasks.upload.ftp);
-gulp.task('upload:all', tasks.upload.all);
-gulp.task('upload:archive', tasks.upload.archive);
-
 // Html
 gulp.task('html', tasks.html);
 
