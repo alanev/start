@@ -13,7 +13,6 @@
             background: #d63f3f;
             padding: 0 20px;
             text-align: center;
-            font-family: arial;
             font-size: 18px;
             font-weight: 700;
             line-height: 30px;
@@ -22,33 +21,6 @@
         &popup{
             bottom: 0;
             padding: 10% 0;
-        }
-        &browser{
-            display: inline-block;
-        }
-        &logo{
-            display: block;
-            size: 100px;
-            border: 0;
-            margin: 20px;
-            outline: 0;
-            
-            opacity: .8;
-            
-            // mods
-            &:hover{
-                opacity: 1;
-                
-                text-decoration: none;
-            }
-            &--{
-                &firefox{
-                    background: url(assets/img/g-errors__logo--firefox.png);
-                }
-                &chrome{
-                    background: url(assets/img/g-errors__logo--chrome.png);
-                }
-            }
         }
         &old{
             .u-support--no-csstransforms &,
