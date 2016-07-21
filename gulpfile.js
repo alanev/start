@@ -33,7 +33,6 @@ gulp.task('fonts', tasks.fonts);
 // Dev
 gulp.task('modules', tasks.modules);
 gulp.task('server', tasks.server);
-gulp.task('open', tasks.watch);
 gulp.task('dev', ['img', 'html', 'css', 'js', 'watch', 'open']);
 gulp.task('watch', ['server'], tasks.watch);
 
