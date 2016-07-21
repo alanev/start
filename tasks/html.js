@@ -11,10 +11,11 @@ var gulp = require('gulp'),
 	postxml = require('gulp-postxml'),
 	plugins = [
 		require('postxml-import')({
-			path: function (attr) {
-        if (!/(\\|\/|\.)/.test(attr)) {
-          return 'modules/' + attr + '/' + attr + '.htm';
-        }
+			path (attr) {
+				if (!/(\\|\/|\.|--)/.test(attr))
+					return `modules/${attr}/${attr}.htm`;
+				if (/--/.test(attr))
+					return `modules/${attr.replace(/--.+$/, '')}/${attr}.htm`;
 				return attr;
 			}
 		}),
@@ -27,7 +28,17 @@ var gulp = require('gulp'),
 			cwd: paths.dest
 		}),
 		require('postxml-wrap')(),
-		require('postxml-repeat')()
+		require('postxml-repeat')(),
+		(opts => ($) => {
+			const w3c = require('w3cjs');
+			w3c.validate({
+				input: $.html(),
+				output: 'json',
+				callback ({messages}) {
+					console.log(messages);
+				}
+			});
+		})()
 	]
 	;
 
