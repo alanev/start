@@ -4,7 +4,7 @@
   "description": "Start for front-end with required modules.",
   "author": "alanev <e@alanev.ru>",
   "scripts": {
-    "postinstall": "gulp modernizr",
+    "postinstall": "node ./tasks/modernizr",
     "start": "gulp build watch",
     "build": "gulp sprite && gulp img && gulp html css js && npm run test",
     "test": "gulp test:html test:css test:js"

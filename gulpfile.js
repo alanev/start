@@ -44,4 +44,3 @@ gulp.task('test:css', tasks.test.css);
 gulp.task('test:js', tasks.test.js);
 
 // Modernizr
-gulp.task('modernizr', tasks.modernizr);
