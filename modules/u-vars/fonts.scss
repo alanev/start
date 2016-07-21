@@ -1,11 +1,11 @@
 // families
 
-$font__family_sans-serif: Arial, Helvetica, sans-serif;
-$font__family_monospace: monospace;
-$font__family_serif: 'Times New Roman', Times, serif;
+$font-family--sans-serif: Arial, Helvetica, sans-serif;
+$font-family--monospace: monospace;
+$font-family--serif: 'Times New Roman', Times, serif;
 
-$font__family_primary: $font__family_sans-serif;
-$font__family_secondary: $font__family_serif;
+$font-family--primary: $font-family--sans-serif;
+$font-family--secondary: $font-family--serif;
 
 // sizes
-$font__size: 16px;
+$font-size: 16px;
