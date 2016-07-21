@@ -4,7 +4,7 @@ var src = 'src/',
 	paths = {
 		src:  src,
 		dest: dest,
-    modules: modules,
+		modules: modules,
 		img: {
 			name: '**/*.{png,jpg,gif,svg}',
 			src: [
@@ -21,14 +21,14 @@ var src = 'src/',
 			block: 'i-icons',
 			src: modules + '**/i-*.png',
 			css: {
-				name: 'i-icons' + '.css',
+				name: 'i-icons.scss',
 				dest: modules + 'i-icons'
 			},
 			img: {
 				name: 'icons.png',
 				dest: modules + 'i-icons'
 			},
-			tmpl: modules + 'i-icons' + '/' + 'i-icons' + '.hbs'
+			tmpl: modules + 'i-icons/i-icons.hbs'
 		}
 	};
 
