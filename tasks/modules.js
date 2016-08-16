@@ -28,7 +28,7 @@ var task = function () {
 						fs.writeFileSync(path.join(dir, key + '.js'), tmpls.js.replace(/{{name}}/g, key));
 					}
 					if (settings.html != false) {
-						fs.writeFileSync(path.join(dir, key + '.htm'), tmpls.html);
+						fs.writeFileSync(path.join(dir, key + '.htm'), tmpls.html.replace(/{{name}}/g, key));
 					}
 					if (settings.css != false) {
 						fs.writeFileSync(path.join(dir, key + '.scss'), tmpls.css.replace(/{{name}}/g, key));
