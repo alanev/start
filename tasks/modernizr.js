@@ -10,4 +10,4 @@ var task = function () {
 	});
 };
 
-module.exports = task;
+module.exports = task();
