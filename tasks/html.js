@@ -28,17 +28,7 @@ var gulp = require('gulp'),
 			cwd: paths.dest
 		}),
 		require('postxml-wrap')(),
-		require('postxml-repeat')(),
-		(opts => ($) => {
-			const w3c = require('w3cjs');
-			w3c.validate({
-				input: $.html(),
-				output: 'json',
-				callback ({messages}) {
-					console.log(messages);
-				}
-			});
-		})()
+		require('postxml-repeat')()
 	]
 	;
 
