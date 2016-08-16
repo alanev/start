@@ -8,12 +8,15 @@ var gulp = require('gulp'),
 // paths
 var paths = require('./paths');
 var logger = (err, files) => {
-    if (err) console.error(err);
-    else {
+    if (err) {
+        console.log('Error', err);
+    } else if (files.length === 0) {
+        console.log('No files');
+    } else {
         // Define action
         var action = 'Minified';
         if (/\.webp$/.test(files[0].history[files[0].history.length - 1])) action = 'Convert to webp';
-        
+
         // Log
         console.log(`${action}: ${files.length} images.`);
     }
