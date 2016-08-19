@@ -15,7 +15,7 @@ var src = 'src/',
 		},
 		fonts: {
 			src: modules + 'g-fonts/*.{woff,woff2}',
-			dest: dest + 'assets/fotns'
+			dest: dest + 'assets/fonts'
 		},
 		sprite: {
 			block: 'i-icons',
